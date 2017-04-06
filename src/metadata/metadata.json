@@ -3,7 +3,7 @@
   "tagline": "AuthoritasSERPs API",
   "description": "Get keyword rankings, PPC data, and search engine rankings.",
   "image": "https://logo.clearbit.com/analyticsseo.com?s=128",
-  "repo": "",
+  "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-AuthoritasSERPs-Package",
   "keywords": [
     "API",
     "SEO",
