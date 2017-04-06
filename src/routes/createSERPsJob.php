@@ -44,7 +44,9 @@ $app->post('/api/AuthoritasSERPs/createSERPsJob', function ($request, $response)
         $json['strategy'] = $postData['args']['strategy'];
     }
     if (!empty($postData['args']['fullPagesCount'])) {
-        $json['full_pages_count'] = (int) $postData['args']['fullPagesCount'];
+        $json['parameters'] = [
+            'full_pages_count' => (int) $postData['args']['fullPagesCount']
+        ];
     }
     if (!empty($postData['args']['userAgent'])) {
         $json['user_agent'] = $postData['args']['userAgent'];

@@ -13,7 +13,7 @@
     "search"
   ],
   "accounts": {
-    "domain": "google.com",
+    "domain": "authoritas.com",
     "credentials": [
       "apiKey",
       "apiSalt",
