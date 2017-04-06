@@ -1,0 +1,172 @@
+{
+  "package": "AuthoritasSERPs",
+  "tagline": "AuthoritasSERPs API",
+  "description": "Get keyword rankings, PPC data, and search engine rankings.",
+  "image": "https://logo.clearbit.com/analyticsseo.com?s=128",
+  "repo": "",
+  "keywords": [
+    "API",
+    "SEO",
+    "content",
+    "keywords",
+    "marketing",
+    "search"
+  ],
+  "accounts": {
+    "domain": "google.com",
+    "credentials": [
+      "apiKey",
+      "apiSalt",
+      "apiSecret"
+    ]
+  },
+  "blocks": [
+    {
+      "name": "createSERPsJob",
+      "description": "Creates a new job to be processed. Upon successfully accepting the request you will receive a job id (UUID) that can later be used to retrieve the SERPs data",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key",
+          "required": true
+        },
+        {
+          "name": "apiSalt",
+          "type": "credentials",
+          "info": "Api salt",
+          "required": true
+        },
+        {
+          "name": "apiSecret",
+          "type": "credentials",
+          "info": "Api secret",
+          "required": true
+        },
+        {
+          "name": "searchEngine",
+          "type": "String",
+          "info": "The search engine to query. Examples: bing, google, yahoo, yandex, baidu",
+          "required": true
+        },
+        {
+          "name": "phrase",
+          "type": "String",
+          "info": "The search term / keyword",
+          "required": true
+        },
+        {
+          "name": "region",
+          "type": "String",
+          "info": "The region code to use",
+          "required": true
+        },
+        {
+          "name": "language",
+          "type": "String",
+          "info": "The language code to use. Default: en",
+          "required": false
+        },
+        {
+          "name": "town",
+          "type": "String",
+          "info": "The town to use",
+          "required": false
+        },
+        {
+          "name": "searchType",
+          "type": "String",
+          "info": "The type of search to perform: web site or country. Default: web",
+          "required": false
+        },
+        {
+          "name": "maxResults",
+          "type": "Number",
+          "info": "The number of results to return. Any number up to 500. Default: 100",
+          "required": false
+        },
+        {
+          "name": "strategy",
+          "type": "String",
+          "info": "The serps fetch strategy. standard - this is the default strategy, we will try to fetch SERPs with 10 results per page, so max_results: 100 will yield 10 pages. economic - we will try to fetch the first X pages with 10 results each then a last page with the remainder, so max_results: 100 will yield X+1 pages",
+          "required": false
+        },
+        {
+          "name": "fullPagesCount",
+          "type": "Number",
+          "info": "Work only with strategy = Economic. Fetch the first full_pages_count pages with 10 results each then a last page with the remainder, so max_results: 100 will yield full_pages_count + 1 pages",
+          "required": false
+        },
+        {
+          "name": "userAgent",
+          "type": "String",
+          "info": "The user agent to use. See below",
+          "required": false
+        },
+        {
+          "name": "useCache",
+          "type": "Boolean",
+          "info": "Wether to use cached data, if available",
+          "required": false
+        },
+        {
+          "name": "includeAllInUniversal",
+          "type": "Boolean",
+          "info": "Wether to incude ads in universal section. Default false",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSERPsJob",
+      "description": "Returns information about an existing job.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key",
+          "required": true
+        },
+        {
+          "name": "apiSalt",
+          "type": "credentials",
+          "info": "Api salt",
+          "required": true
+        },
+        {
+          "name": "apiSecret",
+          "type": "credentials",
+          "info": "Api secret",
+          "required": true
+        },
+        {
+          "name": "jobId",
+          "type": "String",
+          "info": "Job ID (UUID)",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    }
+  ]
+}
+
