@@ -7,7 +7,7 @@ $app->post('/api/AuthoritasSERPs/createSERPsJob', function ($request, $response)
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey', 'apiSalt', 'apiSecret']);
+    $validateRes = $checkRequest->validate($request, ['apiKey', 'apiSalt', 'apiSecret', 'searchEngine', 'phrase', 'region']);
     if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
@@ -24,13 +24,37 @@ $app->post('/api/AuthoritasSERPs/createSERPsJob', function ($request, $response)
     $test .= ' hash=' . $hash;
     $test .= ' ts=' . $time;
 
-    $json = [
-        "search_engine" => "google",
-        "region" => "global",
-        "language" => "en",
-        "max_results" => 10,
-        "phrase" => "How good is your SEO"
-    ];
+    $json['search_engine'] = $postData['args']['searchEngine'];
+    $json['phrase'] = $postData['args']['phrase'];
+    $json['region'] = $postData['args']['region'];
+
+    if (!empty($postData['args']['language'])) {
+        $json['language'] = $postData['args']['language'];
+    }
+    if (!empty($postData['args']['town'])) {
+        $json['town'] = $postData['args']['town'];
+    }
+    if (!empty($postData['args']['searchType'])) {
+        $json['search_type'] = $postData['args']['searchType'];
+    }
+    if (!empty($postData['args']['maxResults'])) {
+        $json['max_results'] = (int) $postData['args']['maxResults'];
+    }
+    if (!empty($postData['args']['strategy'])) {
+        $json['strategy'] = $postData['args']['strategy'];
+    }
+    if (!empty($postData['args']['fullPagesCount'])) {
+        $json['full_pages_count'] = (int) $postData['args']['fullPagesCount'];
+    }
+    if (!empty($postData['args']['userAgent'])) {
+        $json['user_agent'] = $postData['args']['userAgent'];
+    }
+    if (isset($postData['args']['useCache']) && strlen($postData['args']['useCache']) > 0) {
+        $json['use_cache'] =  filter_var($postData['args']['useCache'], FILTER_VALIDATE_BOOLEAN);
+    }
+    if (isset($postData['args']['includeAllInUniversal']) && strlen($postData['args']['includeAllInUniversal']) > 0) {
+        $json['include_all_in_universal'] = $postData['args']['includeAllInUniversal'];
+    }
 
     try {
         /** @var GuzzleHttp\Client $client */
