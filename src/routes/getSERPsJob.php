@@ -14,7 +14,7 @@ $app->post('/api/AuthoritasSERPs/getSERPsJob', function ($request, $response) {
         $postData = $validateRes;
     }
 
-    $url = $settings['apiUrl'] . "/serps/" . $postData['args']['uuid'];
+    $url = $settings['apiUrl'] . "/serps/" . $postData['args']['jobId'];
 
     $time = time();
     $hashSource = $time . $postData['args']['apiKey'] . $postData['args']['apiSalt'];

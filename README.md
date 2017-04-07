@@ -18,7 +18,7 @@ Creates a new job to be processed. Upon successfully accepting the request you w
 | searchEngine         | String     | The search engine to query. Examples: bing, google, yahoo, yandex, baidu
 | phrase               | String     | The search term / keyword
 | region               | String     | The region code to use
-| language             | String     | The language code to use. Default: en
+| language             | String     | The language code to use.
 | town                 | String     | The town to use
 | searchType           | String     | The type of search to perform: web site or country. Default: web
 | maxResults           | Number     | The number of results to return. Any number up to 500. Default: 100
