@@ -27,10 +27,8 @@ $app->post('/api/AuthoritasSERPs/createSERPsJob', function ($request, $response)
     $json['search_engine'] = $postData['args']['searchEngine'];
     $json['phrase'] = $postData['args']['phrase'];
     $json['region'] = $postData['args']['region'];
+    $json['language'] = $postData['args']['language'];
 
-    if (!empty($postData['args']['language'])) {
-        $json['language'] = $postData['args']['language'];
-    }
     if (!empty($postData['args']['town'])) {
         $json['town'] = $postData['args']['town'];
     }

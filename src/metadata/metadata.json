@@ -64,8 +64,8 @@
         {
           "name": "language",
           "type": "String",
-          "info": "The language code to use. Default: en",
-          "required": false
+          "info": "The language code to use.",
+          "required": true
         },
         {
           "name": "town",

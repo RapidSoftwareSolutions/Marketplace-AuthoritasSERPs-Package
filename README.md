@@ -5,7 +5,7 @@ Get keyword rankings, PPC data, and search engine rankings.
 * Credentials: apiKey, apiSalt, apiSecret
 
 ## How to get credentials: 
-1. Item one 
+1. Upgrade your account, send email to support to get apiKeys
  
 ## AuthoritasSERPs.createSERPsJob
 Creates a new job to be processed. Upon successfully accepting the request you will receive a job id (UUID) that can later be used to retrieve the SERPs data
