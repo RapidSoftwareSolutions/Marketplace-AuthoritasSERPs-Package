@@ -75,7 +75,8 @@
         },
         {
           "name": "searchType",
-          "type": "String",
+          "type": "Select",
+          "options": ["web", "country"],
           "info": "The type of search to perform: web site or country. Default: web",
           "required": false
         },
@@ -87,7 +88,8 @@
         },
         {
           "name": "strategy",
-          "type": "String",
+          "type": "Select",
+          "options": ["standard", "economic"],
           "info": "The serps fetch strategy. standard - this is the default strategy, we will try to fetch SERPs with 10 results per page, so max_results: 100 will yield 10 pages. economic - we will try to fetch the first X pages with 10 results each then a last page with the remainder, so max_results: 100 will yield X+1 pages",
           "required": false
         },

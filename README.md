@@ -20,9 +20,9 @@ Creates a new job to be processed. Upon successfully accepting the request you w
 | region               | String     | The region code to use
 | language             | String     | The language code to use.
 | town                 | String     | The town to use
-| searchType           | String     | The type of search to perform: web site or country. Default: web
+| searchType           | Select     | The type of search to perform: web site or country. Default: web
 | maxResults           | Number     | The number of results to return. Any number up to 500. Default: 100
-| strategy             | String     | The serps fetch strategy. standard - this is the default strategy, we will try to fetch SERPs with 10 results per page, so max_results: 100 will yield 10 pages. economic - we will try to fetch the first X pages with 10 results each then a last page with the remainder, so max_results: 100 will yield X+1 pages
+| strategy             | Select     | The serps fetch strategy. standard - this is the default strategy, we will try to fetch SERPs with 10 results per page, so max_results: 100 will yield 10 pages. economic - we will try to fetch the first X pages with 10 results each then a last page with the remainder, so max_results: 100 will yield X+1 pages
 | fullPagesCount       | Number     | Work only with strategy = Economic. Fetch the first full_pages_count pages with 10 results each then a last page with the remainder, so max_results: 100 will yield full_pages_count + 1 pages. Default: 3
 | userAgent            | String     | The user agent to use. See below
 | useCache             | Boolean    | Wether to use cached data, if available
